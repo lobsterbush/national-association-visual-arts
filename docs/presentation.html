@@ -5,11 +5,8 @@
   <title>NAVA AI & Visual Arts Practice Survey 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Reveal.js core -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -55,7 +52,7 @@
     }
     
     .reveal h1 { font-size: 3em; line-height: 1.05; }
-    .reveal h2 { font-size: 2.1em; line-height: 1.15; }
+    .reveal h2 { font-size: 2.1em; line-height: 1.15; margin-bottom: 0.4em; }
     
     .reveal p {
       font-size: 1.15em;
@@ -71,7 +68,7 @@
       color: var(--accent);
       font-size: 0.55em !important;
       font-weight: 700;
-      margin-bottom: 1.5em !important;
+      margin-bottom: 1em !important;
       display: inline-block;
       background: var(--accent-subtle);
       padding: 0.4em 1em;
@@ -85,28 +82,11 @@
       font-weight: 400;
     }
     
-    .callout {
-      background: var(--accent-subtle);
-      border-left: 4px solid var(--accent);
-      padding: 1.5em 2em;
-      border-radius: 0 12px 12px 0;
-      margin: 1.5em 0;
-      text-align: left;
-    }
-    .callout p { margin: 0; color: var(--text); font-size: 1.05em; font-weight: 500; }
-    .callout p strong { color: var(--accent); font-weight: 700; }
-    
-    .callout-warning {
-      background: var(--warning-subtle);
-      border-left-color: var(--warning);
-    }
-    .callout-warning p strong { color: var(--warning); }
-    
     .quote-block {
       background: rgba(255, 255, 255, 0.6);
       border-left: 4px solid var(--accent2);
       padding: 1.5em 2em;
-      margin: 2em 0;
+      margin: 1.5em 0;
       font-style: italic;
       border-radius: 0 12px 12px 0;
       backdrop-filter: blur(8px);
@@ -114,11 +94,12 @@
     .quote-block p {
       margin: 0;
       color: var(--text-secondary);
-      font-size: 1em;
+      font-size: 0.95em;
+      line-height: 1.6;
     }
     .quote-block .attribution {
-      margin-top: 1em;
-      font-size: 0.85em;
+      margin-top: 0.8em;
+      font-size: 0.8em;
       font-style: normal;
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
@@ -168,6 +149,45 @@
       margin-top: 0.5em;
     }
     
+    /* Figure slides - clean white background */
+    .fig-slide {
+      background: #ffffff !important;
+      background-image: none !important;
+    }
+    
+    .fig-slide h2 {
+      margin-bottom: 0.8em !important;
+      padding: 0 2em;
+    }
+    
+    .fig-slide .label {
+      background: rgba(233, 30, 99, 0.1);
+    }
+    
+    .fig-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2em;
+    }
+    
+    .plot-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    .fig-caption {
+      margin-top: 1.2em !important;
+      font-size: 0.85em !important;
+      color: var(--text-muted) !important;
+      text-align: center;
+      padding: 0 2em;
+    }
+    
     .dark-bg {
       background-color: var(--bg-dark) !important;
       background-image: radial-gradient(circle at 50% 0%, rgba(233, 30, 99, 0.15), transparent 50%) !important;
@@ -188,15 +208,6 @@
       padding-top: 1.5em;
       text-align: left;
     }
-    
-    .plot-img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 16px 40px var(--shadow-lg);
-      border: 1px solid var(--border);
-      margin: 0 !important;
-      display: block;
-    }
 
     .reveal .progress {
       height: 4px;
@@ -205,16 +216,8 @@
       background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
     }
     
-    .highlight {
-      color: var(--accent);
-      font-weight: 700;
-    }
-    
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5em;
-      margin-top: 2em;
+    .reveal .slides {
+      text-align: left;
     }
   </style>
 </head>
@@ -222,12 +225,11 @@
   <div class="reveal">
     <div class="slides">
       
-      <!-- TITLE SLIDE -->
-      <section class="section" style="text-align: left;">
+      <!-- TITLE -->
+      <section style="text-align: left;">
         <p class="label">NAVA Research 2025</p>
         <h1>AI & Visual Arts Practice</h1>
         <p class="subtitle">Voices from 890 Australian creative practitioners</p>
-        
         <p class="author-info">
           <strong>Charles Crabtree</strong><br>
           Senior Lecturer, School of Social Sciences, Monash University<br>
@@ -240,199 +242,273 @@
         <p class="label">Overview</p>
         <h2>A community at a crossroads</h2>
         <p>This survey captured the lived experiences of visual artists navigating generative AI's rapid integration into creative practice.</p>
-        
         <div class="cols">
           <div class="card fragment fade-up">
-            <p class="stat">
-              <span class="n">890</span>
-              <span class="u">Survey Respondents</span>
-            </p>
+            <p class="stat"><span class="n">890</span><span class="u">Survey Respondents</span></p>
           </div>
           <div class="card fragment fade-up">
-            <p class="stat">
-              <span class="n">85%</span>
-              <span class="u">Visual Artists &<br>Craftspeople</span>
-            </p>
+            <p class="stat"><span class="n">85%</span><span class="u">Visual Artists &<br>Craftspeople</span></p>
           </div>
           <div class="card fragment fade-up">
-            <p class="stat">
-              <span class="n">28%</span>
-              <span class="u">Regional or<br>Remote Practitioners</span>
-            </p>
+            <p class="stat"><span class="n">28%</span><span class="u">Regional or<br>Remote Practitioners</span></p>
           </div>
         </div>
       </section>
 
-      <!-- ACT I: ADOPTION -->
-      <section>
+      <!-- FIG 1 -->
+      <section class="fig-slide">
+        <p class="label">Who Responded</p>
+        <h2>85% of respondents are visual artists or craftspeople</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig01_practitioner_type.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q1: What kind of creative practitioner are you? (n = 888, select all)</p>
+      </section>
+
+      <!-- FIG 2 -->
+      <section class="fig-slide">
+        <p class="label">Identity</p>
+        <h2>28% of respondents live regionally or remotely</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig02_identity.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q3: Do you identify as: (n = 890, select all)</p>
+      </section>
+
+      <!-- FIG 3 -->
+      <section class="fig-slide">
         <p class="label">Adoption</p>
         <h2>46% of creative practitioners use generative AI</h2>
-        <img src="../output/figures/fig03_ai_adoption.png" alt="AI Adoption" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig03_ai_adoption.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q6: Do you use generative AI in your creative practice? (n = 768)</p>
       </section>
 
-      <section>
-        <p class="label">Usage Patterns</p>
-        <h2>AI is a peripheral tool, not the creative engine</h2>
-        <img src="../output/figures/fig06_ai_influence_pct.png" alt="AI Influence Percentage" class="plot-img fragment fade-in">
-        <p class="fragment fade-up" style="margin-top: 1.5em; font-size: 0.95em;">81% say AI influences less than 10% of their final work</p>
-      </section>
-
-      <section>
+      <!-- FIG 4 -->
+      <section class="fig-slide">
         <p class="label">What They Use It For</p>
         <h2>Editing and drafting dominate—only 6% use AI for final artwork</h2>
-        <img src="../output/figures/fig04_ai_uses.png" alt="AI Uses" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig04_ai_uses.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q7: What do you use generative AI for? (n = 567, select all)</p>
       </section>
 
-      <section>
+      <!-- FIG 5 -->
+      <section class="fig-slide">
         <p class="label">Motivation</p>
-        <h2>Saving time is the primary driver</h2>
-        <img src="../output/figures/fig05_main_reason.png" alt="Main Reason" class="plot-img fragment fade-in">
-        
-        <div class="quote-block fragment fade-up">
+        <h2>Saving time is the primary driver (36%)</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig05_main_reason.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q8: What is your main reason for using generative AI? (n = 566)</p>
+      </section>
+
+      <!-- QUOTE: TIME SAVING -->
+      <section>
+        <p class="label">In Their Words</p>
+        <h2>Time-poor arts workers find efficiency</h2>
+        <div class="quote-block">
           <p>"For underfunded and time poor arts workers, AI can be enormously helpful in cutting down time for certain tasks... AI has helped to not only make that workload more manageable, but also to provide a springboard for tasks which are unfamiliar or outside of existing expertise."</p>
           <p class="attribution">— Survey Respondent, Q12</p>
         </div>
       </section>
 
-      <!-- ACT II: CONCERNS -->
-      <section class="dark-bg">
-        <p class="label">The Other Side</p>
-        <h2>71% don't know if their work was used to train AI</h2>
-        <img src="../output/figures/fig08_unauthorized_use.png" alt="Unauthorized Use" class="plot-img fragment fade-in">
+      <!-- FIG 6 -->
+      <section class="fig-slide">
+        <p class="label">Usage Patterns</p>
+        <h2>81% of artists say AI influences less than 10% of their final work</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig06_ai_influence_pct.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q10: What percentage of your final work is generated or influenced by AI? (n = 723)</p>
       </section>
 
-      <section>
+      <!-- FIG 7 -->
+      <section class="fig-slide">
+        <p class="label">Positive Impacts</p>
+        <h2>Time savings lead, but 32% report no positive impact</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig07_positive_impacts.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q11: How has AI positively impacted your creative practice? (n = 655, select all)</p>
+      </section>
+
+      <!-- FIG 8 -->
+      <section class="fig-slide dark-bg">
+        <p class="label">The Other Side</p>
+        <h2>71% don't know if their work was used to train AI</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig08_unauthorized_use.png" class="plot-img">
+        </div>
+        <p class="fig-caption" style="color: #d1d5db !important;">Q13: Has your work been used in connection with AI without your permission? (n = 767)</p>
+      </section>
+
+      <!-- FIG 9 -->
+      <section class="fig-slide">
         <p class="label">When They Found Out</p>
         <h2>36% of artists who discovered unauthorized use did nothing</h2>
-        <img src="../output/figures/fig09_response_to_misuse.png" alt="Response to Misuse" class="plot-img fragment fade-in">
-        
-        <div class="quote-block fragment fade-up">
+        <div class="fig-container">
+          <img src="../output/figures/fig09_response_to_misuse.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q16: What did you do after finding out? (n = 157, select all)</p>
+      </section>
+
+      <!-- QUOTE: POWERLESSNESS -->
+      <section>
+        <p class="label">In Their Words</p>
+        <h2>"Single artist does not have the legal buying power"</h2>
+        <div class="quote-block">
           <p>"Your work can be taken, anytime, anywhere. AI runs in background, 24hrs/365days. Large companies pilfer ideas. Change colours or shapes. There is no recompense for original artist. Single artist does not have the legal 'buying power' of a business or corporation."</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
       </section>
 
-      <section>
+      <!-- FIG 10 -->
+      <section class="fig-slide">
         <p class="label">Economic Impact</p>
         <h2>38% report reduced trust in originality as AI's biggest impact</h2>
-        <img src="../output/figures/fig10_income_impacts.png" alt="Income Impacts" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig10_income_impacts.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q18: How has generative AI affected your practice or income? (n = 563, select all)</p>
       </section>
 
+      <!-- QUOTE: LOST WORK -->
       <section>
-        <p class="label">Lost Work</p>
+        <p class="label">Lost Commissions</p>
         <h2>"I recently lost a commission job..."</h2>
-        
         <div class="quote-block">
-          <p>"I recently lost a commission job where the client wanted something that fell between fully cartoon and AI-generated images they sent for reference. Their own experimentation with AI negatively impacted their understanding of sketches, drafts, and revisions. They expected finished copies before tweaking, and didn't understand the potential of a basic or starting sketch."</p>
+          <p>"I recently lost a commission job where the client wanted something that fell between fully cartoon and AI-generated images they sent for reference. Their own experimentation with AI negatively impacted their understanding of sketches, drafts, and revisions."</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
-        
         <div class="quote-block fragment fade-up">
-          <p>"I am a photographer and photo editor and have lost clients to places that offer AI editing. I cannot compete with the prices and even if it's not as accurate as my work, some photographers are happy to pay less and do a bit more work than pay me more and work less. I have lost enough work and find it harder to find new clients that I am planning on changing careers."</p>
+          <p>"I am a photographer and photo editor and have lost clients to places that offer AI editing. I cannot compete with the prices... I have lost enough work and find it harder to find new clients that I am planning on changing careers."</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
       </section>
 
-      <section>
-        <p class="label">Barriers</p>
-        <h2>Platform opacity is the #1 barrier (76%)</h2>
-        <img src="../output/figures/fig13_barriers.png" alt="Barriers" class="plot-img fragment fade-in">
-      </section>
-
-      <!-- ACT III: DEMANDS -->
-      <section>
+      <!-- FIG 11 -->
+      <section class="fig-slide">
         <p class="label">Transparency</p>
         <h2>85% want visible 'generated by AI' labelling</h2>
-        <img src="../output/figures/fig11_transparency.png" alt="Transparency" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig11_transparency.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q20: Most effective transparency mechanisms (n = 627, select all)</p>
       </section>
 
-      <section>
+      <!-- FIG 12 -->
+      <section class="fig-slide">
         <p class="label">Disclosure</p>
-        <h2>71% say AI-generated content should always be disclosed in all contexts</h2>
-        <img src="../output/figures/fig12_disclosure_contexts.png" alt="Disclosure Contexts" class="plot-img fragment fade-in">
+        <h2>71% say AI content should always be disclosed in all contexts</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig12_disclosure_contexts.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q21: In what contexts should AI content be disclosed? (n = 647, select all)</p>
       </section>
 
-      <section>
+      <!-- FIG 13 -->
+      <section class="fig-slide">
+        <p class="label">Barriers</p>
+        <h2>Platform opacity is the #1 barrier (76%)</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig13_barriers.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q22: Barriers to identifying if your work was used for AI (n = 606, select all)</p>
+      </section>
+
+      <!-- FIG 14 -->
+      <section class="fig-slide">
         <p class="label">Regulation</p>
         <h2>Artists want binding rules: 69% support a Code of Practice</h2>
-        <img src="../output/figures/fig14_regulation.png" alt="Regulation" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig14_regulation.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q23: What kind of regulatory response should be introduced? (n = 648, select all)</p>
       </section>
 
-      <section>
+      <!-- FIG 15 -->
+      <section class="fig-slide">
         <p class="label">Compensation</p>
         <h2>73% support compensation for creators when their work trains AI</h2>
-        <img src="../output/figures/fig15_compensation.png" alt="Compensation" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig15_compensation.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q24: Do you support a compensation scheme? (n = 647)</p>
       </section>
 
-      <section>
+      <!-- FIG 16 -->
+      <section class="fig-slide">
         <p class="label">Collective Licensing</p>
-        <h2>50% are unsure about collective licensing—an education opportunity</h2>
-        <img src="../output/figures/fig16_collective_licensing.png" alt="Collective Licensing" class="plot-img fragment fade-in">
+        <h2>50% are unsure—an education opportunity</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig16_collective_licensing.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Q25: Would you participate in a collective licensing system? (n = 647)</p>
       </section>
 
-      <!-- PLATFORMS -->
-      <section>
+      <!-- FIG 17 -->
+      <section class="fig-slide">
         <p class="label">Platform Landscape</p>
         <h2>ChatGPT dominates: mentioned by 60% of respondents</h2>
-        <img src="../output/figures/fig17_platform_usage.png" alt="Platform Usage" class="plot-img fragment fade-in">
+        <div class="fig-container">
+          <img src="../output/figures/fig17_platform_usage.png" class="plot-img">
+        </div>
+        <p class="fig-caption">AI platforms named in Q9 open-text responses (n = 530, ≥5 mentions shown)</p>
       </section>
 
-      <!-- THEMATIC ANALYSIS -->
-      <section>
+      <!-- FIG 18 -->
+      <section class="fig-slide">
         <p class="label">Themes</p>
-        <h2>Admin utility and IP concerns dominate the open-text responses</h2>
-        <img src="../output/figures/fig18_thematic_analysis.png" alt="Thematic Analysis" class="plot-img fragment fade-in">
-        <p class="fragment fade-up" style="margin-top: 1em; font-size: 0.9em;">1,051 responses coded across five open-ended questions</p>
+        <h2>Admin utility and IP concerns dominate open-text responses</h2>
+        <div class="fig-container">
+          <img src="../output/figures/fig18_thematic_analysis.png" class="plot-img">
+        </div>
+        <p class="fig-caption">Thematic codes across Q4, Q12, Q14, Q19, Q26 (n = 1,051 responses coded)</p>
       </section>
 
-      <!-- DEEPER CONCERNS -->
+      <!-- QUOTE: EXISTENTIAL -->
       <section>
         <p class="label">Existential Fear</p>
         <h2>"It feels pointless"</h2>
-        
         <div class="quote-block">
           <p>"I feel that AI can create something in a few seconds, that would take me months to create. So I feel less motivated to make art. It feels pointless."</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
-        
         <div class="quote-block fragment fade-up">
           <p>"I'm very sad about it being used in creative roles and people losing their jobs. I think it will lead to depression, demise and destruction of humanity."</p>
           <p class="attribution">— Survey Respondent, Q26</p>
         </div>
       </section>
 
+      <!-- QUOTE: CULTURAL -->
       <section>
         <p class="label">Cultural Concerns</p>
         <h2>"AI cannot reproduce my culture's art form"</h2>
-        
         <div class="quote-block">
-          <p>"I am a modern Celtic fine artist. People are using AI to generate Celtic art. AI cannot reproduce my culture's art form, it looks like spaghetti vomit (which in the Celtic art community, is what it is referred as). It misrepresents Celtic art in every way. Celtic art is an old cultural art form with rules and traditions. And to make it matters worse, people are using the fake AI Celtic art on education platforms, or getting it as tattoos. 😞"</p>
+          <p>"I am a modern Celtic fine artist. People are using AI to generate Celtic art. AI cannot reproduce my culture's art form, it looks like spaghetti vomit. It misrepresents Celtic art in every way. Celtic art is an old cultural art form with rules and traditions. And to make it matters worse, people are using the fake AI Celtic art on education platforms, or getting it as tattoos. 😞"</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
       </section>
 
+      <!-- QUOTE: INDIGENOUS -->
       <section>
         <p class="label">Indigenous Voices</p>
         <h2>First Nations concerns</h2>
-        
         <div class="quote-block">
           <p>"Yes, it is already hard enough for genuine First Nations artists to get our art out there without adding AI or digitally created work to the mix, in my opinion all digital works AI or otherwise are not genuine art. In particular anything that is AI generated."</p>
           <p class="attribution">— Survey Respondent, Q4</p>
         </div>
-        
-        <div class="quote-block fragment fade-up">
-          <p>"Generative AI content not acting as an ally in context to providing understanding of the complexity and richness of cultural knowledges, in particular the cultural diversity of art forms and paradigms of relationally with languages and ecosystems."</p>
-          <p class="attribution">— Survey Respondent, Q26</p>
-        </div>
       </section>
 
-      <!-- POSITIVE VOICES -->
+      <!-- QUOTE: OPPORTUNITY -->
       <section>
         <p class="label">The Other Perspective</p>
         <h2>Some see opportunity</h2>
-        
         <div class="quote-block">
-          <p>"I love the opportunities AI offers. Animation has been part of my practice for many years. I've seen and used many new technologies as they became available, all exciting, but none offer the sort of possibilities that AI delivers. It's limited, it can't do everything (yet?), but it offers a new way of working. The trick, and the part artists need to consider, is to make it work FOR you, to make it your own creative tool that can transform but maintain your own creative signature."</p>
+          <p>"I love the opportunities AI offers. Animation has been part of my practice for many years. I've seen and used many new technologies as they became available, all exciting, but none offer the sort of possibilities that AI delivers. The trick is to make it work FOR you, to make it your own creative tool that can transform but maintain your own creative signature."</p>
           <p class="attribution">— Survey Respondent, Q19</p>
         </div>
       </section>
@@ -441,7 +517,6 @@
       <section class="dark-bg">
         <p class="label">Takeaways</p>
         <h2>A community demanding recognition, protection, and choice</h2>
-        
         <div class="cols" style="margin-top: 2em;">
           <div style="text-align: left;">
             <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">🔒 IP Protection</p>
@@ -458,10 +533,10 @@
         </div>
       </section>
 
+      <!-- END -->
       <section class="dark-bg" style="text-align: center;">
         <h2 style="margin-bottom: 0.5em;">Thank you</h2>
         <p style="color: #d1d5db !important;">Data and analysis available at the project repository</p>
-        
         <p class="author-info" style="text-align: center; margin-top: 3em !important;">
           <span style="color: #ffffff; font-size: 1.2em; font-weight: 600;">Charles Crabtree</span><br>
           <span style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; opacity: 0.8;">charles.crabtree@monash.edu • charlescrabtree.org</span>
@@ -475,12 +550,14 @@
   <script>
     Reveal.initialize({
       hash: true,
-      center: true,
+      center: false,
       progress: true,
       slideNumber: 'c/t',
       transition: 'fade',
       controls: true,
-      margin: 0.1,
+      margin: 0.04,
+      width: 1280,
+      height: 720,
       minScale: 0.2,
       maxScale: 2.0
     });
