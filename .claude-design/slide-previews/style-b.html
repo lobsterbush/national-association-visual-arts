@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Style B: Vintage Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:#f5f3ee;font-family:'Work Sans',sans-serif}
+.slide{width:100vw;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden;padding:clamp(2rem,5vw,5rem)}
+
+/* Geometric accent shapes */
+.geo{position:absolute;opacity:0;animation:geoIn 1s ease-out forwards}
+.geo-circle{width:min(20vw,200px);height:min(20vw,200px);border:2px solid #1a1a1a;border-radius:50%;top:12%;right:15%;animation-delay:0.5s}
+.geo-line{width:min(15vw,150px);height:2px;background:#1a1a1a;top:55%;right:10%;animation-delay:0.8s;transform-origin:left}
+.geo-dot{width:clamp(6px,0.8vw,10px);height:clamp(6px,0.8vw,10px);background:#1a1a1a;border-radius:50%;bottom:25%;left:18%;animation-delay:1s}
+.geo-rect{width:min(8vw,80px);height:min(12vw,120px);border:2px solid rgba(26,26,26,0.3);bottom:15%;left:12%;animation-delay:0.7s}
+
+/* Horizontal rule */
+.hr{width:min(60vw,500px);height:1px;background:#1a1a1a;margin:clamp(1rem,2vh,2rem) 0;opacity:0;animation:fadeIn 0.6s 1.4s ease-out forwards}
+
+.label{text-transform:uppercase;letter-spacing:0.25em;font-size:clamp(0.6rem,1vw,0.8rem);color:#555;font-weight:600;opacity:0;animation:fadeUp 0.8s 0.8s ease-out forwards}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.8rem,8vw,6rem);color:#1a1a1a;line-height:0.95;letter-spacing:-0.03em;max-width:min(80vw,850px);text-align:center;opacity:0;animation:fadeUp 1s 1s ease-out forwards}
+h1 em{font-weight:700;font-style:italic;color:#555}
+.subtitle{font-weight:400;font-size:clamp(0.85rem,1.6vw,1.15rem);color:#555;margin-top:clamp(0.5rem,1.5vh,1.5rem);max-width:min(65vw,550px);text-align:center;line-height:1.6;opacity:0;animation:fadeUp 0.8s 1.6s ease-out forwards}
+.cta{display:inline-block;margin-top:clamp(1rem,2vh,2rem);padding:clamp(0.5rem,1vh,0.75rem) clamp(1.5rem,3vw,2.5rem);border:2px solid #1a1a1a;font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(0.65rem,1vw,0.85rem);text-transform:uppercase;letter-spacing:0.15em;color:#1a1a1a;opacity:0;animation:fadeUp 0.8s 1.9s ease-out forwards;cursor:pointer;transition:all 0.3s}
+.cta:hover{background:#1a1a1a;color:#f5f3ee}
+
+@keyframes geoIn{to{opacity:1}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="geo geo-circle"></div>
+  <div class="geo geo-line"></div>
+  <div class="geo geo-dot"></div>
+  <div class="geo geo-rect"></div>
+  <p class="label">NAVA Research · 2025</p>
+  <h1>The <em>Creative</em> Reckoning</h1>
+  <div class="hr"></div>
+  <p class="subtitle">890 Australian artists on AI — adoption, anxiety, and the fight for authorship</p>
+  <div class="cta">Explore the findings →</div>
+</section>
+</body>
+</html>

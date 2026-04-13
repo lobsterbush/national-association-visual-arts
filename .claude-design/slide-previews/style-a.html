@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Style A: Dark Botanical</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:#0f0f0f;font-family:'IBM Plex Sans',sans-serif}
+.slide{width:100vw;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden;padding:clamp(2rem,5vw,5rem)}
+
+/* Abstract botanical shapes */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0;animation:orbIn 2s ease-out forwards}
+.orb-1{width:min(45vw,500px);height:min(45vw,500px);background:radial-gradient(circle,rgba(212,165,116,0.35),transparent 70%);top:-10%;right:-5%;animation-delay:0.3s}
+.orb-2{width:min(35vw,400px);height:min(35vw,400px);background:radial-gradient(circle,rgba(232,180,184,0.25),transparent 70%);bottom:-5%;left:5%;animation-delay:0.6s}
+.orb-3{width:min(25vw,280px);height:min(25vw,280px);background:radial-gradient(circle,rgba(201,184,150,0.2),transparent 70%);top:30%;left:35%;animation-delay:0.9s}
+
+/* Thin accent line */
+.accent-line{position:absolute;top:50%;left:clamp(2rem,5vw,5rem);width:1px;height:0;background:linear-gradient(to bottom,transparent,rgba(212,165,116,0.6),transparent);animation:lineGrow 1.5s 0.5s ease-out forwards}
+
+/* Content */
+.label{font-family:'IBM Plex Sans',sans-serif;text-transform:uppercase;letter-spacing:0.3em;font-size:clamp(0.55rem,1vw,0.75rem);color:#d4a574;font-weight:500;margin-bottom:clamp(0.5rem,1.5vh,1.5rem);opacity:0;animation:fadeUp 0.8s 1s ease-out forwards}
+h1{font-family:'Cormorant',serif;font-weight:400;font-size:clamp(2.5rem,7vw,5.5rem);color:#e8e4df;line-height:1.05;letter-spacing:-0.02em;max-width:min(85vw,900px);text-align:center;opacity:0;animation:fadeUp 1s 1.2s ease-out forwards}
+h1 em{font-style:italic;color:#d4a574}
+.subtitle{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:clamp(0.85rem,1.8vw,1.25rem);color:#9a9590;margin-top:clamp(0.8rem,2vh,2rem);max-width:min(70vw,600px);text-align:center;line-height:1.6;opacity:0;animation:fadeUp 0.8s 1.5s ease-out forwards}
+.author{font-size:clamp(0.6rem,1vw,0.8rem);color:#6a6560;margin-top:clamp(1.5rem,3vh,3rem);letter-spacing:0.05em;opacity:0;animation:fadeUp 0.8s 1.8s ease-out forwards}
+
+@keyframes orbIn{to{opacity:1}}
+@keyframes lineGrow{to{height:min(40vh,300px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="accent-line"></div>
+  <p class="label">NAVA Research · 2025</p>
+  <h1>AI &amp; <em>Visual Arts</em> Practice</h1>
+  <p class="subtitle">What 890 Australian creative practitioners told us about generative AI — and what it means for the sector</p>
+  <p class="author">Charles Crabtree · Monash University</p>
+</section>
+</body>
+</html>

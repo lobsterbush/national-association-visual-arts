@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Style C: Bold Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:#1a1a1a;font-family:'Space Grotesk',sans-serif}
+.slide{width:100vw;height:100vh;height:100dvh;display:flex;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 50%,#1a1a1a 100%)}
+
+/* Colored card as focal element */
+.card{position:absolute;top:clamp(3rem,8vh,6rem);right:clamp(2rem,5vw,5rem);width:min(55vw,650px);height:min(65vh,500px);background:#E65100;border-radius:clamp(12px,2vw,24px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(2rem,4vw,4rem);opacity:0;transform:translateY(30px) scale(0.95);animation:cardIn 1s 0.3s cubic-bezier(0.16,1,0.3,1) forwards}
+
+/* Number + navigation */
+.slide-num{position:absolute;top:clamp(2rem,4vh,4rem);left:clamp(2rem,5vw,5rem);font-family:'Archivo Black',sans-serif;font-size:clamp(1.5rem,4vw,3rem);color:rgba(255,255,255,0.15);opacity:0;animation:fadeIn 0.6s 0.8s ease-out forwards}
+.nav{position:absolute;top:clamp(2rem,4vh,4rem);right:clamp(2rem,5vw,5rem);display:flex;gap:clamp(0.5rem,1vw,1rem);opacity:0;animation:fadeIn 0.6s 1s ease-out forwards}
+.nav span{font-size:clamp(0.6rem,0.9vw,0.75rem);color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.15em;font-weight:500}
+.nav span.active{color:rgba(255,255,255,0.9)}
+
+/* Content on card */
+.card-label{font-size:clamp(0.55rem,0.9vw,0.7rem);text-transform:uppercase;letter-spacing:0.3em;color:rgba(26,26,26,0.5);font-weight:600;margin-bottom:clamp(0.5rem,1vh,1rem);opacity:0;animation:fadeUp 0.8s 1s ease-out forwards}
+.card h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,5vw,4rem);color:#1a1a1a;line-height:1;letter-spacing:-0.02em;opacity:0;animation:fadeUp 0.8s 1.2s ease-out forwards}
+.card p{font-size:clamp(0.8rem,1.3vw,1rem);color:rgba(26,26,26,0.7);margin-top:clamp(0.5rem,1.5vh,1.5rem);line-height:1.5;max-width:min(40vw,450px);opacity:0;animation:fadeUp 0.8s 1.5s ease-out forwards}
+
+/* Left side text */
+.left-content{position:absolute;bottom:clamp(3rem,8vh,6rem);left:clamp(2rem,5vw,5rem);opacity:0;animation:fadeUp 0.8s 1.8s ease-out forwards}
+.left-content .author{color:rgba(255,255,255,0.7);font-size:clamp(0.7rem,1vw,0.85rem);font-weight:500}
+.left-content .affiliation{color:rgba(255,255,255,0.35);font-size:clamp(0.55rem,0.8vw,0.7rem);margin-top:0.3rem}
+
+@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-num">01</div>
+  <div class="nav">
+    <span class="active">Overview</span>
+    <span>Adoption</span>
+    <span>Impact</span>
+    <span>Policy</span>
+  </div>
+  <div class="card">
+    <p class="card-label">NAVA · 2025</p>
+    <h1>AI &amp; Visual Arts Practice</h1>
+    <p>What 890 Australian creative practitioners told us about generative AI — and what the sector must do next.</p>
+  </div>
+  <div class="left-content">
+    <div class="author">Charles Crabtree</div>
+    <div class="affiliation">Monash University · Korea University</div>
+  </div>
+</section>
+</body>
+</html>
