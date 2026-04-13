@@ -67,8 +67,8 @@
       position: relative;
       overflow: hidden;
     }
-    .title-slide .label { background: rgba(99,102,241,0.2); color: #a5b4fc; }
-    .title-slide h1 { color: #f1f0fb; font-size: 4em; font-weight: 400; position: relative; z-index: 1; }
+    .title-slide .label { background: rgba(99,102,241,0.2); color: #a5b4fc; position: relative; z-index: 1; }
+    .title-slide h1 { color: #f1f0fb; font-size: 4em; font-weight: 400; position: relative; z-index: 1; text-align: center; }
     .title-slide h1 em { font-style: italic; color: #a5b4fc; }
     .title-slide .subtitle {
       color: rgba(241,240,251,0.7);
@@ -76,6 +76,7 @@
       max-width: 750px;
       margin-top: 0.8rem;
       position: relative; z-index: 1;
+      text-align: center;
     }
     .title-slide .author {
       color: rgba(241,240,251,0.45);
@@ -83,6 +84,7 @@
       margin-top: 2.5rem;
       line-height: 1.8;
       position: relative; z-index: 1;
+      text-align: center;
     }
 
     /* --- Section divider slides --- */
@@ -133,10 +135,11 @@
     /* --- Summary slide --- */
     .reveal ul { margin-left: 0; list-style: none; }
     .reveal li {
-      margin-bottom: 0.7em;
+      margin-bottom: 0.9em;
       line-height: 1.55;
-      padding-left: 1.2em;
+      padding-left: 1.4em;
       position: relative;
+      font-size: 1.1em;
     }
     .reveal li::before {
       content: '';
@@ -160,14 +163,16 @@
       position: relative;
       overflow: hidden;
     }
-    .closing .label { background: rgba(99,102,241,0.2); color: #a5b4fc; }
-    .closing h1 { color: #f1f0fb; font-size: 3.5em; font-weight: 400; position: relative; z-index: 1; }
-    .closing .subtitle { color: rgba(241,240,251,0.65); max-width: 700px; margin-top: 1rem; position: relative; z-index: 1; }
+    .closing .label { background: rgba(99,102,241,0.2); color: #a5b4fc; position: relative; z-index: 1; }
+    .closing h1 { color: #f1f0fb; font-size: 3.5em; font-weight: 400; position: relative; z-index: 1; text-align: center; }
+    .closing .subtitle { color: rgba(241,240,251,0.65); max-width: 700px; margin-top: 1rem; position: relative; z-index: 1; text-align: center; }
     .closing .contact {
       color: rgba(241,240,251,0.4);
       font-size: 0.78em;
       margin-top: 2.5rem;
       position: relative; z-index: 1;
+      text-align: center;
+      line-height: 1.8;
     }
     .closing .contact a { color: #a5b4fc; text-decoration: none; }
   </style>
