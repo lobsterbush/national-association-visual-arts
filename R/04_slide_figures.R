@@ -17,10 +17,10 @@ theme_summary   <- readRDS(here("data", "clean", "theme_summary.rds"))
 q1_other_coded  <- readRDS(here("data", "clean", "q1_other_coded.rds"))
 
 # ---- Shared styling (larger for slides) ----
-accent      <- "#3730a3"
-accent2     <- "#4338ca"
-muted       <- "#6b6b7e"
-warning_col <- "#d97706"
+accent      <- "#3730a3"   # indigo — primary
+accent2     <- "#6366f1"   # lighter indigo — secondary
+muted       <- "#94a3b8"   # slate — neutral/baseline
+text_col    <- "#475569"   # slate-600 — annotations
 
 theme_slide <- function() {
   theme_tufte(base_size = 16) +
@@ -63,7 +63,7 @@ q1 <- closed_ended |>
 fig1 <- ggplot(q1, aes(x = reorder(choice, n), y = n)) +
   geom_segment(aes(xend = choice, y = 0, yend = n), color = accent, linewidth = 0.8) +
   geom_point(size = 4, color = accent) +
-  geom_text(aes(label = n), hjust = -0.5, size = 5, color = muted) +
+  geom_text(aes(label = n), hjust = -0.5, size = 5, color = text_col) +
   coord_flip() +
   labs(x = NULL, y = "Respondents") +
   theme_slide() +
@@ -81,7 +81,7 @@ q3 <- closed_ended |>
 fig2 <- ggplot(q3, aes(x = reorder(choice, n), y = pct)) +
   geom_segment(aes(xend = choice, y = 0, yend = pct), color = accent, linewidth = 0.8) +
   geom_point(size = 4, color = accent) +
-  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = muted) +
+  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = text_col) +
   coord_flip() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
   labs(x = NULL, y = NULL) +
@@ -98,15 +98,15 @@ q6 <- closed_ended |>
     choice = factor(choice, levels = c("Yes", "Not currently, but I may in the future", "No")),
     fill_col = case_when(
       choice == "Yes" ~ accent,
-      choice == "No"  ~ warning_col,
-      TRUE            ~ muted
+      choice == "No"  ~ muted,
+      TRUE            ~ accent2
     )
   )
 
 fig3 <- ggplot(q6, aes(x = choice, y = pct, fill = fill_col)) +
   geom_col(width = 0.6) +
   geom_text(aes(label = paste0(percent(pct, accuracy = 1), "\n(n=", n, ")")),
-            vjust = -0.3, size = 5, color = "grey30") +
+            vjust = -0.3, size = 5, color = text_col) +
   scale_fill_identity() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
   scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
@@ -127,7 +127,7 @@ q7 <- closed_ended |>
 fig4 <- ggplot(q7, aes(x = reorder(choice, pct), y = pct)) +
   geom_segment(aes(xend = choice, y = 0, yend = pct), color = accent, linewidth = 0.8) +
   geom_point(size = 4, color = accent) +
-  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 4.5, color = muted) +
+  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 4.5, color = text_col) +
   coord_flip() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.15))) +
   labs(x = NULL, y = NULL) +
@@ -167,7 +167,7 @@ q10 <- closed_ended |>
 
 fig6 <- ggplot(q10, aes(x = choice, y = pct)) +
   geom_col(fill = accent, width = 0.6) +
-  geom_text(aes(label = percent(pct, accuracy = 1)), vjust = -0.5, size = 5, color = muted) +
+  geom_text(aes(label = percent(pct, accuracy = 1)), vjust = -0.5, size = 5, color = text_col) +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.15))) +
   scale_x_discrete(labels = function(x) str_wrap(x, width = 12)) +
   labs(x = NULL, y = NULL) +
@@ -182,7 +182,7 @@ q11 <- closed_ended |>
   filter(qnum == "Q11", choice != "Other (please specify)") |>
   mutate(
     choice = str_wrap(choice, width = 30),
-    fill_col = ifelse(choice == str_wrap("No positive impact yet", 30), warning_col, accent)
+    fill_col = ifelse(choice == str_wrap("No positive impact yet", 30), muted, accent)
   ) |>
   arrange(pct)
 
@@ -205,8 +205,8 @@ q13 <- closed_ended |>
   mutate(
     choice = factor(choice, levels = c("Yes", "No", "I don't know")),
     fill_col = case_when(
-      choice == "I don't know" ~ warning_col,
-      choice == "Yes"          ~ "#dc2626",
+      choice == "I don't know" ~ accent,
+      choice == "Yes"          ~ accent2,
       TRUE                     ~ muted
     )
   )
@@ -214,7 +214,7 @@ q13 <- closed_ended |>
 fig8 <- ggplot(q13, aes(x = choice, y = pct, fill = fill_col)) +
   geom_col(width = 0.6) +
   geom_text(aes(label = paste0(percent(pct, accuracy = 1), "\n(n=", n, ")")),
-            vjust = -0.3, size = 5, color = "grey30") +
+            vjust = -0.3, size = 5, color = text_col) +
   scale_fill_identity() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
   labs(x = NULL, y = NULL) +
@@ -229,7 +229,7 @@ q16 <- closed_ended |>
   filter(qnum == "Q16", choice != "Other (please specify)") |>
   mutate(
     choice = str_wrap(choice, width = 25),
-    fill_col = ifelse(choice == str_wrap("Did nothing", 25), warning_col, accent)
+    fill_col = ifelse(choice == str_wrap("Did nothing", 25), muted, accent)
   ) |>
   arrange(pct)
 
@@ -277,7 +277,7 @@ q20 <- closed_ended |>
 fig11 <- ggplot(q20, aes(x = reorder(choice, pct), y = pct)) +
   geom_segment(aes(xend = choice, y = 0, yend = pct), color = accent, linewidth = 0.8) +
   geom_point(size = 4, color = accent) +
-  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = muted) +
+  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = text_col) +
   coord_flip() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.15))) +
   labs(x = NULL, y = NULL) +
@@ -316,9 +316,9 @@ q22 <- closed_ended |>
   arrange(pct)
 
 fig13 <- ggplot(q22, aes(x = reorder(choice, pct), y = pct)) +
-  geom_segment(aes(xend = choice, y = 0, yend = pct), color = warning_col, linewidth = 0.8) +
-  geom_point(size = 4, color = warning_col) +
-  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = muted) +
+  geom_segment(aes(xend = choice, y = 0, yend = pct), color = accent2, linewidth = 0.8) +
+  geom_point(size = 4, color = accent2) +
+  geom_text(aes(label = percent(pct, accuracy = 1)), hjust = -0.3, size = 5, color = text_col) +
   coord_flip() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.15))) +
   labs(x = NULL, y = NULL) +
@@ -356,16 +356,16 @@ q24 <- closed_ended |>
   mutate(
     choice = factor(choice, levels = c("Yes", "Not sure", "No")),
     fill_col = case_when(
-      choice == "Yes"      ~ accent,
-      choice == "Not sure" ~ muted,
-      TRUE                 ~ warning_col
+    choice == "Yes"      ~ accent,
+      choice == "Not sure" ~ accent2,
+      TRUE                 ~ muted
     )
   )
 
 fig15 <- ggplot(q24, aes(x = choice, y = pct, fill = fill_col)) +
   geom_col(width = 0.5) +
   geom_text(aes(label = paste0(percent(pct, accuracy = 1), "\n(n=", n, ")")),
-            vjust = -0.3, size = 5, color = "grey30") +
+            vjust = -0.3, size = 5, color = text_col) +
   scale_fill_identity() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
   labs(x = NULL, y = NULL) +
@@ -381,16 +381,16 @@ q25 <- closed_ended |>
   mutate(
     choice = factor(choice, levels = c("Yes", "Not sure", "No")),
     fill_col = case_when(
-      choice == "Yes"      ~ accent,
-      choice == "Not sure" ~ muted,
-      TRUE                 ~ warning_col
+    choice == "Yes"      ~ accent,
+      choice == "Not sure" ~ accent2,
+      TRUE                 ~ muted
     )
   )
 
 fig16 <- ggplot(q25, aes(x = choice, y = pct, fill = fill_col)) +
   geom_col(width = 0.5) +
   geom_text(aes(label = paste0(percent(pct, accuracy = 1), "\n(n=", n, ")")),
-            vjust = -0.3, size = 5, color = "grey30") +
+            vjust = -0.3, size = 5, color = text_col) +
   scale_fill_identity() +
   scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
   labs(x = NULL, y = NULL) +
@@ -408,7 +408,7 @@ platforms_top <- platform_counts |>
 fig17 <- ggplot(platforms_top, aes(x = reorder(platform, n_mentions), y = n_mentions)) +
   geom_segment(aes(xend = platform, y = 0, yend = n_mentions), color = accent, linewidth = 0.8) +
   geom_point(size = 4, color = accent) +
-  geom_text(aes(label = n_mentions), hjust = -0.5, size = 5, color = muted) +
+  geom_text(aes(label = n_mentions), hjust = -0.5, size = 5, color = text_col) +
   coord_flip() +
   labs(x = NULL, y = "Mentions") +
   theme_slide() +
@@ -435,7 +435,7 @@ fig18 <- ggplot(theme_plot, aes(x = reorder(theme, n), y = n, fill = fill_group)
   geom_text(aes(label = n), hjust = -0.2, size = 4) +
   coord_flip() +
   scale_fill_manual(
-    values = c("Concern" = warning_col, "Positive/Pragmatic" = accent, "Policy" = accent2),
+    values = c("Concern" = muted, "Positive/Pragmatic" = accent, "Policy" = accent2),
     name = NULL
   ) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
