@@ -27,6 +27,9 @@
     .reveal-viewport { background: var(--bg) !important; }
     .reveal .slides { text-align: left; }
     .reveal .slides section { padding: 2.8rem 3.5rem; background: var(--bg); }
+    .reveal .slides section.title-slide,
+    .reveal .slides section.divider,
+    .reveal .slides section.closing { background: transparent !important; }
 
     /* --- Typography --- */
     .reveal h1, .reveal h2 {
@@ -61,7 +64,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #0f0f17 0%, #1a1a2e 40%, #16132b 100%) !important;
       position: relative;
       overflow: hidden;
     }
