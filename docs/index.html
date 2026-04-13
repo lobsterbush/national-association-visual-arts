@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAVA AI & Visual Arts Survey 2025</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f17; color: #f1f0fb; height: 100vh; display: flex; justify-content: center; align-items: center; }
+  #gate { text-align: center; max-width: 400px; padding: 2rem; }
+  #gate h1 { font-size: 1.4em; font-weight: 400; margin-bottom: 0.5em; letter-spacing: 0.02em; }
+  #gate p { color: rgba(241,240,251,0.5); font-size: 0.85em; margin-bottom: 1.5em; }
+  #gate input {
+    width: 100%; padding: 0.75em 1em; border: 1px solid rgba(99,102,241,0.3);
+    background: rgba(255,255,255,0.05); color: #f1f0fb; border-radius: 6px;
+    font-size: 1em; outline: none; text-align: center;
+  }
+  #gate input:focus { border-color: #6366f1; }
+  #gate button {
+    margin-top: 1em; padding: 0.7em 2em; background: #3730a3; color: #f1f0fb;
+    border: none; border-radius: 6px; font-size: 0.9em; cursor: pointer;
+    letter-spacing: 0.05em; transition: background 0.2s;
+  }
+  #gate button:hover { background: #4338ca; }
+  #err { color: #f87171; font-size: 0.8em; margin-top: 0.8em; display: none; }
+  #deck { display: none; width: 100vw; height: 100vh; border: none; }
+</style>
+</head>
+<body>
+<div id="gate">
+  <h1>NAVA AI & Visual Arts Survey 2025</h1>
+  <p>This presentation is password-protected.</p>
+  <form onsubmit="return check()">
+    <input type="password" id="pw" placeholder="Enter password" autofocus>
+    <button type="submit">View Presentation</button>
+  </form>
+  <p id="err">Incorrect password.</p>
+</div>
+<iframe id="deck" src=""></iframe>
+<script>
+function check() {
+  var pw = document.getElementById('pw').value;
+  // Simple client-side check (not cryptographically secure, just a gate)
+  if (pw === 'visualarts') {
+    document.getElementById('gate').style.display = 'none';
+    var deck = document.getElementById('deck');
+    deck.style.display = 'block';
+    deck.src = 'presentation.html';
+  } else {
+    document.getElementById('err').style.display = 'block';
+  }
+  return false;
+}
+</script>
+</body>
+</html>
