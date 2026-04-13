@@ -1,566 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>NAVA AI & Visual Arts Practice Survey 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg: #f9f9fb;
-      --bg-card: rgba(255, 255, 255, 0.7);
-      --bg-dark: #111118;
-      --text: #111118;
-      --text-secondary: #4a4a5a;
-      --text-muted: #6b6b7e;
-      --accent: #e91e63;
-      --accent2: #9c27b0;
-      --accent3: #3f51b5;
-      --accent-light: #f06292;
-      --accent-subtle: rgba(233, 30, 99, 0.08);
-      --warning: #ff6f00;
-      --warning-subtle: rgba(255, 111, 0, 0.08);
-      --success: #00897b;
-      --border: rgba(226, 227, 232, 0.8);
-      --shadow: rgba(17, 17, 24, 0.05);
-      --shadow-lg: rgba(17, 17, 24, 0.1);
-    }
-    
-    body, .reveal {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-image: 
-        radial-gradient(circle at 15% 50%, rgba(233, 30, 99, 0.05), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(156, 39, 176, 0.04), transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(63, 81, 181, 0.03), transparent 25%);
-    }
-    
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--text);
-      text-transform: none;
-      letter-spacing: -0.01em;
-      font-weight: 600;
-      margin: 0 0 0.6em 0;
-    }
-    
-    .reveal h1 { font-size: 3em; line-height: 1.05; }
-    .reveal h2 { font-size: 2.1em; line-height: 1.15; margin-bottom: 0.4em; }
-    
-    .reveal p {
-      font-size: 1.15em;
-      line-height: 1.5;
-      color: var(--text-secondary);
-      margin-bottom: 1em;
-    }
-    
-    .label {
-      font-family: 'JetBrains Mono', monospace;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      font-size: 0.55em !important;
-      font-weight: 700;
-      margin-bottom: 1em !important;
-      display: inline-block;
-      background: var(--accent-subtle);
-      padding: 0.4em 1em;
-      border-radius: 4px;
-    }
-    
-    .subtitle {
-      font-size: 1.4em !important;
-      color: var(--text-muted) !important;
-      margin-top: 0.5em !important;
-      font-weight: 400;
-    }
-    
-    .quote-block {
-      background: rgba(255, 255, 255, 0.6);
-      border-left: 4px solid var(--accent2);
-      padding: 1.5em 2em;
-      margin: 1.5em 0;
-      font-style: italic;
-      border-radius: 0 12px 12px 0;
-      backdrop-filter: blur(8px);
-    }
-    .quote-block p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 0.95em;
-      line-height: 1.6;
-    }
-    .quote-block .attribution {
-      margin-top: 0.8em;
-      font-size: 0.8em;
-      font-style: normal;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-    
-    .card {
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2em;
-      box-shadow: 0 10px 40px var(--shadow);
-      text-align: left;
-    }
-    
-    .cols {
-      display: flex;
-      gap: 2.5em;
-      margin-top: 1.5em;
-      align-items: stretch;
-    }
-    .cols > div {
-      flex: 1;
-    }
-    
-    .stat {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      margin: 0 !important;
-      text-align: left;
-    }
-    .stat .n {
-      font-size: 4em;
-      font-weight: 700;
-      color: var(--accent);
-      display: block;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-    .stat .u {
-      font-size: 0.4em;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      font-weight: 700;
-      display: block;
-      margin-top: 0.5em;
-    }
-    
-    /* Figure slides - clean white background */
-    .fig-slide {
-      background: #ffffff !important;
-      background-image: none !important;
-    }
-    
-    .fig-slide h2 {
-      margin-bottom: 0.8em !important;
-      padding: 0 2em;
-    }
-    
-    .fig-slide .label {
-      background: rgba(233, 30, 99, 0.1);
-    }
-    
-    .fig-container {
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2em;
-    }
-    
-    .plot-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 8px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    }
-    
-    .fig-caption {
-      margin-top: 1.2em !important;
-      font-size: 0.85em !important;
-      color: var(--text-muted) !important;
-      text-align: center;
-      padding: 0 2em;
-    }
-    
-    .dark-bg {
-      background-color: var(--bg-dark) !important;
-      background-image: radial-gradient(circle at 50% 0%, rgba(233, 30, 99, 0.15), transparent 50%) !important;
-    }
-    .dark-bg h1, .dark-bg h2, .dark-bg p {
-      color: #f1f2f5 !important;
-    }
-    .dark-bg .label {
-      background: rgba(233, 30, 99, 0.2) !important;
-      color: #ffa4c0 !important;
-    }
-    
-    .author-info {
-      font-size: 0.65em !important;
-      color: var(--text-muted) !important;
-      margin-top: 4em !important;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5em;
-      text-align: left;
-    }
+<meta charset="utf-8">
+<title>NAVA AI &amp; Visual Arts Survey 2025</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
 
-    .reveal .progress {
-      height: 4px;
-    }
-    .reveal .progress span {
-      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-    }
-    
-    .reveal .slides {
-      text-align: left;
-    }
-  </style>
+.reveal,.reveal .slides section{
+  font-family:'IBM Plex Sans',sans-serif;
+  color:#1a1a2e;
+  text-align:left;
+  background:#fafafa;
+}
+
+.reveal h1,.reveal h2{
+  font-family:'DM Serif Display',serif;
+  font-weight:400;
+  color:#1a1a2e;
+  text-transform:none;
+  letter-spacing:-0.02em;
+  line-height:1.15;
+  margin:0 0 0.5em;
+}
+.reveal h1{font-size:2.8em;}
+.reveal h2{font-size:1.9em;}
+
+.reveal p{font-size:1.1em;line-height:1.55;color:#3a3a52;margin-bottom:0.8em;}
+
+.label{
+  font-family:'IBM Plex Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  font-size:0.6em !important;
+  font-weight:600;
+  color:#6366f1;
+  margin-bottom:0.8em !important;
+  display:inline-block;
+}
+
+.cap{
+  font-size:0.78em !important;
+  color:#8888a0 !important;
+  margin-top:0.6em !important;
+  text-align:center;
+}
+
+.desc{font-size:1.05em;color:#5a5a72;}
+
+.sub{
+  font-size:1.3em !important;
+  color:#6b6b80 !important;
+  margin-top:0.4em !important;
+  font-weight:400;
+  max-width:700px;
+}
+
+.row{
+  display:flex;
+  gap:1.8em;
+  margin-top:1.4em;
+}
+
+.card{
+  flex:1;
+  background:rgba(255,255,255,0.85);
+  border:1px solid #e8e8f0;
+  border-radius:12px;
+  padding:1.6em;
+  text-align:left;
+}
+
+.big{
+  font-family:'DM Serif Display',serif;
+  font-size:3.2em;
+  color:#4f46e5;
+  display:block;
+  line-height:1;
+  margin-bottom:0.15em;
+}
+
+.unit{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.7em;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:#8888a0;
+  font-weight:600;
+}
+
+blockquote{
+  background:#f3f2ff;
+  border-left:4px solid #6366f1;
+  padding:1.4em 2em;
+  margin:1.2em 0;
+  border-radius:0 10px 10px 0;
+}
+blockquote p{
+  font-style:italic;
+  font-size:1.05em;
+  color:#2a2a42;
+  margin:0;
+  line-height:1.65;
+}
+blockquote footer{
+  margin-top:0.8em;
+  font-style:normal;
+  font-size:0.8em;
+  color:#8888a0;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+/* Figure slides */
+section[style*="background:#fff"] img{
+  border-radius:6px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Dark slides */
+.dark{
+  background:#12121f !important;
+  color:#e8e8f0 !important;
+}
+.dark h2{color:#f0f0f8 !important;}
+.dark p,.dark .desc{color:#b0b0c8 !important;}
+.dark .label{color:#a5b4fc !important;}
+.dark-card{
+  background:rgba(255,255,255,0.06) !important;
+  border-color:rgba(255,255,255,0.1) !important;
+  color:#d0d0e0 !important;
+}
+.dark-card strong{color:#c7d2fe;display:block;margin-bottom:0.4em;font-size:1.1em;}
+
+/* Title slide */
+.title-slide{
+  background:linear-gradient(160deg,#0f0f1a 0%,#1a1a35 40%,#252550 100%) !important;
+}
+.title-slide h1{color:#fff !important;font-size:3.2em;}
+.title-slide .label{color:#818cf8 !important;}
+.title-slide .sub{color:#a0a0c0 !important;}
+
+.author{
+  font-size:0.72em !important;
+  color:#9090a8 !important;
+  margin-top:3em !important;
+  border-top:1px solid rgba(150,150,180,0.2);
+  padding-top:1.2em;
+}
+.title-slide .author{color:#8080a0 !important;}
+.title-slide .author strong{color:#d0d0e8;}
+
+.end h2{color:#fff !important;text-align:center;font-size:2.4em;}
+.end .desc{text-align:center;}
+.end .author{text-align:center;}
+
+/* Progress bar */
+.reveal .progress{height:3px;}
+.reveal .progress span{background:linear-gradient(90deg,#6366f1,#8b5cf6,#a78bfa);}
+.reveal .slide-number{font-family:'IBM Plex Mono',monospace;font-size:0.6em;color:#aaa;}
+</style>
 </head>
 <body>
-  <div class="reveal">
-    <div class="slides">
-      
-      <!-- TITLE -->
-      <section style="text-align: left;">
-        <p class="label">NAVA Research 2025</p>
-        <h1>AI & Visual Arts Practice</h1>
-        <p class="subtitle">Voices from 890 Australian creative practitioners</p>
-        <p class="author-info">
+<div class="reveal">
+<div class="slides">
+
+      <section class="title-slide">
+        <p class="label">NAVA Research &middot; 2025</p>
+        <h1>AI &amp; Visual Arts Practice</h1>
+        <p class="sub">What 890 Australian creative practitioners told us about generative AI</p>
+        <div class="author">
           <strong>Charles Crabtree</strong><br>
           Senior Lecturer, School of Social Sciences, Monash University<br>
           K-Club Professor, University College, Korea University
-        </p>
+        </div>
       </section>
 
-      <!-- OVERVIEW -->
       <section>
         <p class="label">Overview</p>
         <h2>A community at a crossroads</h2>
-        <p>This survey captured the lived experiences of visual artists navigating generative AI's rapid integration into creative practice.</p>
-        <div class="cols">
-          <div class="card fragment fade-up">
-            <p class="stat"><span class="n">890</span><span class="u">Survey Respondents</span></p>
-          </div>
-          <div class="card fragment fade-up">
-            <p class="stat"><span class="n">85%</span><span class="u">Visual Artists &<br>Craftspeople</span></p>
-          </div>
-          <div class="card fragment fade-up">
-            <p class="stat"><span class="n">28%</span><span class="u">Regional or<br>Remote Practitioners</span></p>
-          </div>
-        </div>
+        <p class="desc">The largest survey of Australian visual artists on generative AI to date.</p>
+        <div class="row"><div class="card"><span class="big">890</span><span class="unit">respondents</span></div>
+<div class="card"><span class="big">85%</span><span class="unit">visual artists &amp; craftspeople</span></div>
+<div class="card"><span class="big">28%</span><span class="unit">regional or remote</span></div>
+</div>
       </section>
 
-      <!-- FIG 1 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Who Responded</p>
-        <h2>85% of respondents are visual artists or craftspeople</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig01_practitioner_type.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q1: What kind of creative practitioner are you? (n = 888, select all)</p>
+        <h2>85% are visual artists or craftspeople</h2>
+        <img src="figures/fig01_practitioner_type.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 2 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Identity</p>
-        <h2>28% of respondents live regionally or remotely</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig02_identity.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q3: Do you identify as: (n = 890, select all)</p>
+        <h2>28% live regionally or remotely</h2>
+        <img src="figures/fig02_identity.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 3 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Adoption</p>
         <h2>46% of creative practitioners use generative AI</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig03_ai_adoption.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q6: Do you use generative AI in your creative practice? (n = 768)</p>
+        <img src="figures/fig03_ai_adoption.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 4 -->
-      <section class="fig-slide">
-        <p class="label">What They Use It For</p>
+      <section style="background:#fff;">
+        <p class="label">What For</p>
         <h2>Editing and drafting dominate—only 6% use AI for final artwork</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig04_ai_uses.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q7: What do you use generative AI for? (n = 567, select all)</p>
+        <img src="figures/fig04_ai_uses.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 5 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Motivation</p>
         <h2>Saving time is the primary driver (36%)</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig05_main_reason.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q8: What is your main reason for using generative AI? (n = 566)</p>
+        <img src="figures/fig05_main_reason.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- QUOTE: TIME SAVING -->
       <section>
         <p class="label">In Their Words</p>
         <h2>Time-poor arts workers find efficiency</h2>
-        <div class="quote-block">
-          <p>"For underfunded and time poor arts workers, AI can be enormously helpful in cutting down time for certain tasks... AI has helped to not only make that workload more manageable, but also to provide a springboard for tasks which are unfamiliar or outside of existing expertise."</p>
-          <p class="attribution">— Survey Respondent, Q12</p>
-        </div>
+        <blockquote>
+          <p>For underfunded and time poor arts workers, AI can be enormously helpful in cutting down time for certain tasks… AI has helped to not only make that workload more manageable, but also to provide a springboard for tasks which are unfamiliar or outside of existing expertise.</p>
+          <footer>Survey Respondent, Q12</footer>
+        </blockquote>
       </section>
 
-      <!-- FIG 6 -->
-      <section class="fig-slide">
-        <p class="label">Usage Patterns</p>
-        <h2>81% of artists say AI influences less than 10% of their final work</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig06_ai_influence_pct.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q10: What percentage of your final work is generated or influenced by AI? (n = 723)</p>
+      <section style="background:#fff;">
+        <p class="label">Usage</p>
+        <h2>81% say AI influences less than 10% of their final work</h2>
+        <img src="figures/fig06_ai_influence_pct.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 7 -->
-      <section class="fig-slide">
-        <p class="label">Positive Impacts</p>
+      <section style="background:#fff;">
+        <p class="label">Positives</p>
         <h2>Time savings lead, but 32% report no positive impact</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig07_positive_impacts.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q11: How has AI positively impacted your creative practice? (n = 655, select all)</p>
+        <img src="figures/fig07_positive_impacts.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 8 -->
-      <section class="fig-slide dark-bg">
+      <section class="dark">
         <p class="label">The Other Side</p>
-        <h2>71% don't know if their work was used to train AI</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig08_unauthorized_use.png" class="plot-img">
-        </div>
-        <p class="fig-caption" style="color: #d1d5db !important;">Q13: Has your work been used in connection with AI without your permission? (n = 767)</p>
+        <h2>71% don’t know if their work was used to train AI</h2>
+        <img src="figures/fig08_unauthorized_use.png" style="width:100%;max-width:900px;display:block;margin:1em auto 0;border-radius:6px;">
       </section>
 
-      <!-- FIG 9 -->
-      <section class="fig-slide">
-        <p class="label">When They Found Out</p>
-        <h2>36% of artists who discovered unauthorized use did nothing</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig09_response_to_misuse.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q16: What did you do after finding out? (n = 157, select all)</p>
+      <section style="background:#fff;">
+        <p class="label">Response</p>
+        <h2>36% who discovered unauthorized use did nothing</h2>
+        <img src="figures/fig09_response_to_misuse.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- QUOTE: POWERLESSNESS -->
       <section>
         <p class="label">In Their Words</p>
-        <h2>"Single artist does not have the legal buying power"</h2>
-        <div class="quote-block">
-          <p>"Your work can be taken, anytime, anywhere. AI runs in background, 24hrs/365days. Large companies pilfer ideas. Change colours or shapes. There is no recompense for original artist. Single artist does not have the legal 'buying power' of a business or corporation."</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
+        <h2>“Single artist does not have the legal buying power”</h2>
+        <blockquote>
+          <p>Your work can be taken, anytime, anywhere. AI runs in background, 24hrs/365days. Large companies pilfer ideas. Change colours or shapes. There is no recompense for original artist. Single artist does not have the legal ‘buying power’ of a business or corporation.</p>
+          <footer>Survey Respondent, Q19</footer>
+        </blockquote>
       </section>
 
-      <!-- FIG 10 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Economic Impact</p>
-        <h2>38% report reduced trust in originality as AI's biggest impact</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig10_income_impacts.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q18: How has generative AI affected your practice or income? (n = 563, select all)</p>
+        <h2>38% report reduced trust in originality</h2>
+        <img src="figures/fig10_income_impacts.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- QUOTE: LOST WORK -->
       <section>
         <p class="label">Lost Commissions</p>
-        <h2>"I recently lost a commission job..."</h2>
-        <div class="quote-block">
-          <p>"I recently lost a commission job where the client wanted something that fell between fully cartoon and AI-generated images they sent for reference. Their own experimentation with AI negatively impacted their understanding of sketches, drafts, and revisions."</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
-        <div class="quote-block fragment fade-up">
-          <p>"I am a photographer and photo editor and have lost clients to places that offer AI editing. I cannot compete with the prices... I have lost enough work and find it harder to find new clients that I am planning on changing careers."</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
+        <h2>“I am planning on changing careers”</h2>
+        <blockquote>
+          <p>I am a photographer and photo editor and have lost clients to places that offer AI editing. I cannot compete with the prices… I have lost enough work and find it harder to find new clients that I am planning on changing careers.</p>
+          <footer>Survey Respondent, Q19</footer>
+        </blockquote>
       </section>
 
-      <!-- FIG 11 -->
-      <section class="fig-slide">
-        <p class="label">Transparency</p>
-        <h2>85% want visible 'generated by AI' labelling</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig11_transparency.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q20: Most effective transparency mechanisms (n = 627, select all)</p>
-      </section>
-
-      <!-- FIG 12 -->
-      <section class="fig-slide">
-        <p class="label">Disclosure</p>
-        <h2>71% say AI content should always be disclosed in all contexts</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig12_disclosure_contexts.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q21: In what contexts should AI content be disclosed? (n = 647, select all)</p>
-      </section>
-
-      <!-- FIG 13 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Barriers</p>
         <h2>Platform opacity is the #1 barrier (76%)</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig13_barriers.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q22: Barriers to identifying if your work was used for AI (n = 606, select all)</p>
+        <img src="figures/fig13_barriers.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 14 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
+        <p class="label">Transparency</p>
+        <h2>85% want visible ‘generated by AI’ labelling</h2>
+        <img src="figures/fig11_transparency.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
+      </section>
+
+      <section style="background:#fff;">
+        <p class="label">Disclosure</p>
+        <h2>71% say AI content should always be disclosed</h2>
+        <img src="figures/fig12_disclosure_contexts.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
+      </section>
+
+      <section style="background:#fff;">
         <p class="label">Regulation</p>
-        <h2>Artists want binding rules: 69% support a Code of Practice</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig14_regulation.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q23: What kind of regulatory response should be introduced? (n = 648, select all)</p>
+        <h2>69% support a Code of Practice</h2>
+        <img src="figures/fig14_regulation.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 15 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Compensation</p>
-        <h2>73% support compensation for creators when their work trains AI</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig15_compensation.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q24: Do you support a compensation scheme? (n = 647)</p>
+        <h2>73% support compensation when their work trains AI</h2>
+        <img src="figures/fig15_compensation.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 16 -->
-      <section class="fig-slide">
-        <p class="label">Collective Licensing</p>
+      <section style="background:#fff;">
+        <p class="label">Licensing</p>
         <h2>50% are unsure—an education opportunity</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig16_collective_licensing.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Q25: Would you participate in a collective licensing system? (n = 647)</p>
+        <img src="figures/fig16_collective_licensing.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 17 -->
-      <section class="fig-slide">
-        <p class="label">Platform Landscape</p>
-        <h2>ChatGPT dominates: mentioned by 60% of respondents</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig17_platform_usage.png" class="plot-img">
-        </div>
-        <p class="fig-caption">AI platforms named in Q9 open-text responses (n = 530, ≥5 mentions shown)</p>
+      <section style="background:#fff;">
+        <p class="label">Platforms</p>
+        <h2>ChatGPT dominates: mentioned by 60%</h2>
+        <img src="figures/fig17_platform_usage.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- FIG 18 -->
-      <section class="fig-slide">
+      <section style="background:#fff;">
         <p class="label">Themes</p>
         <h2>Admin utility and IP concerns dominate open-text responses</h2>
-        <div class="fig-container">
-          <img src="../output/figures/fig18_thematic_analysis.png" class="plot-img">
-        </div>
-        <p class="fig-caption">Thematic codes across Q4, Q12, Q14, Q19, Q26 (n = 1,051 responses coded)</p>
+        <img src="figures/fig18_thematic_analysis.png" style="width:100%;max-width:960px;display:block;margin:0.8em auto 0;">
+        
       </section>
 
-      <!-- QUOTE: EXISTENTIAL -->
       <section>
         <p class="label">Existential Fear</p>
-        <h2>"It feels pointless"</h2>
-        <div class="quote-block">
-          <p>"I feel that AI can create something in a few seconds, that would take me months to create. So I feel less motivated to make art. It feels pointless."</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
-        <div class="quote-block fragment fade-up">
-          <p>"I'm very sad about it being used in creative roles and people losing their jobs. I think it will lead to depression, demise and destruction of humanity."</p>
-          <p class="attribution">— Survey Respondent, Q26</p>
-        </div>
+        <h2>“It feels pointless”</h2>
+        <blockquote>
+          <p>I feel that AI can create something in a few seconds, that would take me months to create. So I feel less motivated to make art. It feels pointless.</p>
+          <footer>Survey Respondent, Q19</footer>
+        </blockquote>
       </section>
 
-      <!-- QUOTE: CULTURAL -->
       <section>
         <p class="label">Cultural Concerns</p>
-        <h2>"AI cannot reproduce my culture's art form"</h2>
-        <div class="quote-block">
-          <p>"I am a modern Celtic fine artist. People are using AI to generate Celtic art. AI cannot reproduce my culture's art form, it looks like spaghetti vomit. It misrepresents Celtic art in every way. Celtic art is an old cultural art form with rules and traditions. And to make it matters worse, people are using the fake AI Celtic art on education platforms, or getting it as tattoos. 😞"</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
+        <h2>“AI cannot reproduce my culture’s art form”</h2>
+        <blockquote>
+          <p>I am a modern Celtic fine artist. People are using AI to generate Celtic art. AI cannot reproduce my culture’s art form, it looks like spaghetti vomit. It misrepresents Celtic art in every way. Celtic art is an old cultural art form with rules and traditions.</p>
+          <footer>Survey Respondent, Q19</footer>
+        </blockquote>
       </section>
 
-      <!-- QUOTE: INDIGENOUS -->
       <section>
         <p class="label">Indigenous Voices</p>
         <h2>First Nations concerns</h2>
-        <div class="quote-block">
-          <p>"Yes, it is already hard enough for genuine First Nations artists to get our art out there without adding AI or digitally created work to the mix, in my opinion all digital works AI or otherwise are not genuine art. In particular anything that is AI generated."</p>
-          <p class="attribution">— Survey Respondent, Q4</p>
-        </div>
+        <blockquote>
+          <p>It is already hard enough for genuine First Nations artists to get our art out there without adding AI or digitally created work to the mix. In my opinion all digital works AI or otherwise are not genuine art. In particular anything that is AI generated.</p>
+          <footer>Survey Respondent, Q4</footer>
+        </blockquote>
       </section>
 
-      <!-- QUOTE: OPPORTUNITY -->
       <section>
-        <p class="label">The Other Perspective</p>
-        <h2>Some see opportunity</h2>
-        <div class="quote-block">
-          <p>"I love the opportunities AI offers. Animation has been part of my practice for many years. I've seen and used many new technologies as they became available, all exciting, but none offer the sort of possibilities that AI delivers. The trick is to make it work FOR you, to make it your own creative tool that can transform but maintain your own creative signature."</p>
-          <p class="attribution">— Survey Respondent, Q19</p>
-        </div>
+        <p class="label">Opportunity</p>
+        <h2>Some see creative potential</h2>
+        <blockquote>
+          <p>I love the opportunities AI offers… none offer the sort of possibilities that AI delivers. The trick is to make it work FOR you, to make it your own creative tool that can transform but maintain your own creative signature.</p>
+          <footer>Survey Respondent, Q19</footer>
+        </blockquote>
       </section>
 
-      <!-- CONCLUSION -->
-      <section class="dark-bg">
+      <section class="dark">
         <p class="label">Takeaways</p>
         <h2>A community demanding recognition, protection, and choice</h2>
-        <div class="cols" style="margin-top: 2em;">
-          <div style="text-align: left;">
-            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">🔒 IP Protection</p>
-            <p style="font-size: 0.9em; color: #d1d5db !important;">Artists want transparent disclosure, consent mechanisms, and compensation when their work trains AI systems.</p>
-          </div>
-          <div style="text-align: left;" class="fragment fade-up">
-            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">⚖️ Regulation</p>
-            <p style="font-size: 0.9em; color: #d1d5db !important;">Voluntary guidelines are insufficient. Artists support enforceable Codes of Practice and legislation.</p>
-          </div>
-          <div style="text-align: left;" class="fragment fade-up">
-            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">🎨 Creative Autonomy</p>
-            <p style="font-size: 0.9em; color: #d1d5db !important;">AI can be a tool for efficiency, but it must not erase human authorship, cultural integrity, or economic viability.</p>
-          </div>
+        <div class="row" style="margin-top:1.6em;">
+          <div class="card dark-card"><strong>IP Protection</strong><br>Disclosure, consent, and compensation when work trains AI.</div>
+          <div class="card dark-card"><strong>Regulation</strong><br>Voluntary guidelines are insufficient. Artists want enforceable codes.</div>
+          <div class="card dark-card"><strong>Creative Autonomy</strong><br>AI as efficiency tool, not replacement for human authorship.</div>
         </div>
       </section>
 
-      <!-- END -->
-      <section class="dark-bg" style="text-align: center;">
-        <h2 style="margin-bottom: 0.5em;">Thank you</h2>
-        <p style="color: #d1d5db !important;">Data and analysis available at the project repository</p>
-        <p class="author-info" style="text-align: center; margin-top: 3em !important;">
-          <span style="color: #ffffff; font-size: 1.2em; font-weight: 600;">Charles Crabtree</span><br>
-          <span style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; opacity: 0.8;">charles.crabtree@monash.edu • charlescrabtree.org</span>
-        </p>
+      <section class="dark end">
+        <h2>Thank you</h2>
+        <p class="desc" style="color:#b0b0c0;">Data and analysis available at the project repository</p>
+        <div class="author" style="border-top-color:rgba(255,255,255,0.12);margin-top:2.5em;">
+          <strong style="color:#fff;font-size:1.3em;">Charles Crabtree</strong><br>
+          <span style="font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;opacity:0.7;">charles.crabtree@monash.edu &middot; charlescrabtree.org</span>
+        </div>
       </section>
-
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-  <script>
-    Reveal.initialize({
-      hash: true,
-      center: false,
-      progress: true,
-      slideNumber: 'c/t',
-      transition: 'fade',
-      controls: true,
-      margin: 0.04,
-      width: 1280,
-      height: 720,
-      minScale: 0.2,
-      maxScale: 2.0
-    });
-  </script>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash:true,
+  center:false,
+  progress:true,
+  slideNumber:'c/t',
+  transition:'fade',
+  transitionSpeed:'fast',
+  controls:true,
+  margin:0.06,
+  width:1280,
+  height:720
+});
+</script>
 </body>
 </html>
