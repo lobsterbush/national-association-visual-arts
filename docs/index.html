@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NAVA AI & Visual Arts Survey 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 3em 2.5em;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+    
+    .subtitle {
+      font-size: 1.1em;
+      color: #6b6b7e;
+      margin-bottom: 2em;
+      line-height: 1.5;
+    }
+    
+    .lock-icon {
+      font-size: 3em;
+      text-align: center;
+      margin-bottom: 1em;
+      opacity: 0.3;
+    }
+    
+    input[type="password"] {
+      width: 100%;
+      padding: 1em 1.2em;
+      font-size: 1.1em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      border: 2px solid #e2e3e8;
+      border-radius: 12px;
+      outline: none;
+      transition: all 0.3s ease;
+      margin-bottom: 1em;
+    }
+    
+    input[type="password"]:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    }
+    
+    button {
+      width: 100%;
+      padding: 1em 1.2em;
+      font-size: 1.1em;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .error {
+      color: #dc2626;
+      font-size: 0.9em;
+      margin-top: 0.5em;
+      display: none;
+      animation: shake 0.5s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+    
+    .footer {
+      margin-top: 2em;
+      padding-top: 1.5em;
+      border-top: 1px solid #e2e3e8;
+      text-align: center;
+      font-size: 0.85em;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lock-icon">🔒</div>
+    <h1>NAVA AI & Visual Arts Survey</h1>
+    <p class="subtitle">Comprehensive analysis of AI's impact on Australian creative practitioners</p>
+    
+    <form id="passwordForm">
+      <input 
+        type="password" 
+        id="passwordInput" 
+        placeholder="Enter password" 
+        autocomplete="off"
+        autofocus
+      >
+      <button type="submit">View Presentation</button>
+      <div class="error" id="errorMsg">Incorrect password. Please try again.</div>
+    </form>
+    
+    <div class="footer">
+      © 2025 Charles Crabtree • Monash University
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = 'visual-arts';
+    const form = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMsg = document.getElementById('errorMsg');
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredPassword = passwordInput.value;
+      
+      if (enteredPassword === correctPassword) {
+        // Redirect to presentation
+        window.location.href = 'presentation.html';
+      } else {
+        // Show error
+        errorMsg.style.display = 'block';
+        passwordInput.value = '';
+        passwordInput.focus();
+        
+        // Shake animation
+        passwordInput.style.animation = 'none';
+        setTimeout(() => {
+          passwordInput.style.animation = 'shake 0.5s';
+        }, 10);
+        
+        // Hide error after 3 seconds
+        setTimeout(() => {
+          errorMsg.style.display = 'none';
+        }, 3000);
+      }
+    });
+    
+    // Hide error on typing
+    passwordInput.addEventListener('input', () => {
+      errorMsg.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

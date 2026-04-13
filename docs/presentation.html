@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NAVA AI & Visual Arts Practice Survey 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #f9f9fb;
+      --bg-card: rgba(255, 255, 255, 0.7);
+      --bg-dark: #111118;
+      --text: #111118;
+      --text-secondary: #4a4a5a;
+      --text-muted: #6b6b7e;
+      --accent: #e91e63;
+      --accent2: #9c27b0;
+      --accent3: #3f51b5;
+      --accent-light: #f06292;
+      --accent-subtle: rgba(233, 30, 99, 0.08);
+      --warning: #ff6f00;
+      --warning-subtle: rgba(255, 111, 0, 0.08);
+      --success: #00897b;
+      --border: rgba(226, 227, 232, 0.8);
+      --shadow: rgba(17, 17, 24, 0.05);
+      --shadow-lg: rgba(17, 17, 24, 0.1);
+    }
+    
+    body, .reveal {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(233, 30, 99, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(156, 39, 176, 0.04), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(63, 81, 181, 0.03), transparent 25%);
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      margin: 0 0 0.6em 0;
+    }
+    
+    .reveal h1 { font-size: 3em; line-height: 1.05; }
+    .reveal h2 { font-size: 2.1em; line-height: 1.15; }
+    
+    .reveal p {
+      font-size: 1.15em;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin-bottom: 1em;
+    }
+    
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      font-size: 0.55em !important;
+      font-weight: 700;
+      margin-bottom: 1.5em !important;
+      display: inline-block;
+      background: var(--accent-subtle);
+      padding: 0.4em 1em;
+      border-radius: 4px;
+    }
+    
+    .subtitle {
+      font-size: 1.4em !important;
+      color: var(--text-muted) !important;
+      margin-top: 0.5em !important;
+      font-weight: 400;
+    }
+    
+    .callout {
+      background: var(--accent-subtle);
+      border-left: 4px solid var(--accent);
+      padding: 1.5em 2em;
+      border-radius: 0 12px 12px 0;
+      margin: 1.5em 0;
+      text-align: left;
+    }
+    .callout p { margin: 0; color: var(--text); font-size: 1.05em; font-weight: 500; }
+    .callout p strong { color: var(--accent); font-weight: 700; }
+    
+    .callout-warning {
+      background: var(--warning-subtle);
+      border-left-color: var(--warning);
+    }
+    .callout-warning p strong { color: var(--warning); }
+    
+    .quote-block {
+      background: rgba(255, 255, 255, 0.6);
+      border-left: 4px solid var(--accent2);
+      padding: 1.5em 2em;
+      margin: 2em 0;
+      font-style: italic;
+      border-radius: 0 12px 12px 0;
+      backdrop-filter: blur(8px);
+    }
+    .quote-block p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 1em;
+    }
+    .quote-block .attribution {
+      margin-top: 1em;
+      font-size: 0.85em;
+      font-style: normal;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2em;
+      box-shadow: 0 10px 40px var(--shadow);
+      text-align: left;
+    }
+    
+    .cols {
+      display: flex;
+      gap: 2.5em;
+      margin-top: 1.5em;
+      align-items: stretch;
+    }
+    .cols > div {
+      flex: 1;
+    }
+    
+    .stat {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0 !important;
+      text-align: left;
+    }
+    .stat .n {
+      font-size: 4em;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat .u {
+      font-size: 0.4em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 700;
+      display: block;
+      margin-top: 0.5em;
+    }
+    
+    .dark-bg {
+      background-color: var(--bg-dark) !important;
+      background-image: radial-gradient(circle at 50% 0%, rgba(233, 30, 99, 0.15), transparent 50%) !important;
+    }
+    .dark-bg h1, .dark-bg h2, .dark-bg p {
+      color: #f1f2f5 !important;
+    }
+    .dark-bg .label {
+      background: rgba(233, 30, 99, 0.2) !important;
+      color: #ffa4c0 !important;
+    }
+    
+    .author-info {
+      font-size: 0.65em !important;
+      color: var(--text-muted) !important;
+      margin-top: 4em !important;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5em;
+      text-align: left;
+    }
+    
+    .plot-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 16px 40px var(--shadow-lg);
+      border: 1px solid var(--border);
+      margin: 0 !important;
+      display: block;
+    }
+
+    .reveal .progress {
+      height: 4px;
+    }
+    .reveal .progress span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    }
+    
+    .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5em;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- TITLE SLIDE -->
+      <section class="section" style="text-align: left;">
+        <p class="label">NAVA Research 2025</p>
+        <h1>AI & Visual Arts Practice</h1>
+        <p class="subtitle">Voices from 890 Australian creative practitioners</p>
+        
+        <p class="author-info">
+          <strong>Charles Crabtree</strong><br>
+          Senior Lecturer, School of Social Sciences, Monash University<br>
+          K-Club Professor, University College, Korea University
+        </p>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section>
+        <p class="label">Overview</p>
+        <h2>A community at a crossroads</h2>
+        <p>This survey captured the lived experiences of visual artists navigating generative AI's rapid integration into creative practice.</p>
+        
+        <div class="cols">
+          <div class="card fragment fade-up">
+            <p class="stat">
+              <span class="n">890</span>
+              <span class="u">Survey Respondents</span>
+            </p>
+          </div>
+          <div class="card fragment fade-up">
+            <p class="stat">
+              <span class="n">85%</span>
+              <span class="u">Visual Artists &<br>Craftspeople</span>
+            </p>
+          </div>
+          <div class="card fragment fade-up">
+            <p class="stat">
+              <span class="n">28%</span>
+              <span class="u">Regional or<br>Remote Practitioners</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACT I: ADOPTION -->
+      <section>
+        <p class="label">Adoption</p>
+        <h2>46% of creative practitioners use generative AI</h2>
+        <img src="../output/figures/fig03_ai_adoption.png" alt="AI Adoption" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Usage Patterns</p>
+        <h2>AI is a peripheral tool, not the creative engine</h2>
+        <img src="../output/figures/fig06_ai_influence_pct.png" alt="AI Influence Percentage" class="plot-img fragment fade-in">
+        <p class="fragment fade-up" style="margin-top: 1.5em; font-size: 0.95em;">81% say AI influences less than 10% of their final work</p>
+      </section>
+
+      <section>
+        <p class="label">What They Use It For</p>
+        <h2>Editing and drafting dominate—only 6% use AI for final artwork</h2>
+        <img src="../output/figures/fig04_ai_uses.png" alt="AI Uses" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Motivation</p>
+        <h2>Saving time is the primary driver</h2>
+        <img src="../output/figures/fig05_main_reason.png" alt="Main Reason" class="plot-img fragment fade-in">
+        
+        <div class="quote-block fragment fade-up">
+          <p>"For underfunded and time poor arts workers, AI can be enormously helpful in cutting down time for certain tasks... AI has helped to not only make that workload more manageable, but also to provide a springboard for tasks which are unfamiliar or outside of existing expertise."</p>
+          <p class="attribution">— Survey Respondent, Q12</p>
+        </div>
+      </section>
+
+      <!-- ACT II: CONCERNS -->
+      <section class="dark-bg">
+        <p class="label">The Other Side</p>
+        <h2>71% don't know if their work was used to train AI</h2>
+        <img src="../output/figures/fig08_unauthorized_use.png" alt="Unauthorized Use" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">When They Found Out</p>
+        <h2>36% of artists who discovered unauthorized use did nothing</h2>
+        <img src="../output/figures/fig09_response_to_misuse.png" alt="Response to Misuse" class="plot-img fragment fade-in">
+        
+        <div class="quote-block fragment fade-up">
+          <p>"Your work can be taken, anytime, anywhere. AI runs in background, 24hrs/365days. Large companies pilfer ideas. Change colours or shapes. There is no recompense for original artist. Single artist does not have the legal 'buying power' of a business or corporation."</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Economic Impact</p>
+        <h2>38% report reduced trust in originality as AI's biggest impact</h2>
+        <img src="../output/figures/fig10_income_impacts.png" alt="Income Impacts" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Lost Work</p>
+        <h2>"I recently lost a commission job..."</h2>
+        
+        <div class="quote-block">
+          <p>"I recently lost a commission job where the client wanted something that fell between fully cartoon and AI-generated images they sent for reference. Their own experimentation with AI negatively impacted their understanding of sketches, drafts, and revisions. They expected finished copies before tweaking, and didn't understand the potential of a basic or starting sketch."</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+        
+        <div class="quote-block fragment fade-up">
+          <p>"I am a photographer and photo editor and have lost clients to places that offer AI editing. I cannot compete with the prices and even if it's not as accurate as my work, some photographers are happy to pay less and do a bit more work than pay me more and work less. I have lost enough work and find it harder to find new clients that I am planning on changing careers."</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Barriers</p>
+        <h2>Platform opacity is the #1 barrier (76%)</h2>
+        <img src="../output/figures/fig13_barriers.png" alt="Barriers" class="plot-img fragment fade-in">
+      </section>
+
+      <!-- ACT III: DEMANDS -->
+      <section>
+        <p class="label">Transparency</p>
+        <h2>85% want visible 'generated by AI' labelling</h2>
+        <img src="../output/figures/fig11_transparency.png" alt="Transparency" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Disclosure</p>
+        <h2>71% say AI-generated content should always be disclosed in all contexts</h2>
+        <img src="../output/figures/fig12_disclosure_contexts.png" alt="Disclosure Contexts" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Regulation</p>
+        <h2>Artists want binding rules: 69% support a Code of Practice</h2>
+        <img src="../output/figures/fig14_regulation.png" alt="Regulation" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Compensation</p>
+        <h2>73% support compensation for creators when their work trains AI</h2>
+        <img src="../output/figures/fig15_compensation.png" alt="Compensation" class="plot-img fragment fade-in">
+      </section>
+
+      <section>
+        <p class="label">Collective Licensing</p>
+        <h2>50% are unsure about collective licensing—an education opportunity</h2>
+        <img src="../output/figures/fig16_collective_licensing.png" alt="Collective Licensing" class="plot-img fragment fade-in">
+      </section>
+
+      <!-- PLATFORMS -->
+      <section>
+        <p class="label">Platform Landscape</p>
+        <h2>ChatGPT dominates: mentioned by 60% of respondents</h2>
+        <img src="../output/figures/fig17_platform_usage.png" alt="Platform Usage" class="plot-img fragment fade-in">
+      </section>
+
+      <!-- THEMATIC ANALYSIS -->
+      <section>
+        <p class="label">Themes</p>
+        <h2>Admin utility and IP concerns dominate the open-text responses</h2>
+        <img src="../output/figures/fig18_thematic_analysis.png" alt="Thematic Analysis" class="plot-img fragment fade-in">
+        <p class="fragment fade-up" style="margin-top: 1em; font-size: 0.9em;">1,051 responses coded across five open-ended questions</p>
+      </section>
+
+      <!-- DEEPER CONCERNS -->
+      <section>
+        <p class="label">Existential Fear</p>
+        <h2>"It feels pointless"</h2>
+        
+        <div class="quote-block">
+          <p>"I feel that AI can create something in a few seconds, that would take me months to create. So I feel less motivated to make art. It feels pointless."</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+        
+        <div class="quote-block fragment fade-up">
+          <p>"I'm very sad about it being used in creative roles and people losing their jobs. I think it will lead to depression, demise and destruction of humanity."</p>
+          <p class="attribution">— Survey Respondent, Q26</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Cultural Concerns</p>
+        <h2>"AI cannot reproduce my culture's art form"</h2>
+        
+        <div class="quote-block">
+          <p>"I am a modern Celtic fine artist. People are using AI to generate Celtic art. AI cannot reproduce my culture's art form, it looks like spaghetti vomit (which in the Celtic art community, is what it is referred as). It misrepresents Celtic art in every way. Celtic art is an old cultural art form with rules and traditions. And to make it matters worse, people are using the fake AI Celtic art on education platforms, or getting it as tattoos. 😞"</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Indigenous Voices</p>
+        <h2>First Nations concerns</h2>
+        
+        <div class="quote-block">
+          <p>"Yes, it is already hard enough for genuine First Nations artists to get our art out there without adding AI or digitally created work to the mix, in my opinion all digital works AI or otherwise are not genuine art. In particular anything that is AI generated."</p>
+          <p class="attribution">— Survey Respondent, Q4</p>
+        </div>
+        
+        <div class="quote-block fragment fade-up">
+          <p>"Generative AI content not acting as an ally in context to providing understanding of the complexity and richness of cultural knowledges, in particular the cultural diversity of art forms and paradigms of relationally with languages and ecosystems."</p>
+          <p class="attribution">— Survey Respondent, Q26</p>
+        </div>
+      </section>
+
+      <!-- POSITIVE VOICES -->
+      <section>
+        <p class="label">The Other Perspective</p>
+        <h2>Some see opportunity</h2>
+        
+        <div class="quote-block">
+          <p>"I love the opportunities AI offers. Animation has been part of my practice for many years. I've seen and used many new technologies as they became available, all exciting, but none offer the sort of possibilities that AI delivers. It's limited, it can't do everything (yet?), but it offers a new way of working. The trick, and the part artists need to consider, is to make it work FOR you, to make it your own creative tool that can transform but maintain your own creative signature."</p>
+          <p class="attribution">— Survey Respondent, Q19</p>
+        </div>
+      </section>
+
+      <!-- CONCLUSION -->
+      <section class="dark-bg">
+        <p class="label">Takeaways</p>
+        <h2>A community demanding recognition, protection, and choice</h2>
+        
+        <div class="cols" style="margin-top: 2em;">
+          <div style="text-align: left;">
+            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">🔒 IP Protection</p>
+            <p style="font-size: 0.9em; color: #d1d5db !important;">Artists want transparent disclosure, consent mechanisms, and compensation when their work trains AI systems.</p>
+          </div>
+          <div style="text-align: left;" class="fragment fade-up">
+            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">⚖️ Regulation</p>
+            <p style="font-size: 0.9em; color: #d1d5db !important;">Voluntary guidelines are insufficient. Artists support enforceable Codes of Practice and legislation.</p>
+          </div>
+          <div style="text-align: left;" class="fragment fade-up">
+            <p style="font-size: 1.1em; color: #ffa4c0 !important; font-weight: 600; margin-bottom: 0.5em;">🎨 Creative Autonomy</p>
+            <p style="font-size: 0.9em; color: #d1d5db !important;">AI can be a tool for efficiency, but it must not erase human authorship, cultural integrity, or economic viability.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dark-bg" style="text-align: center;">
+        <h2 style="margin-bottom: 0.5em;">Thank you</h2>
+        <p style="color: #d1d5db !important;">Data and analysis available at the project repository</p>
+        
+        <p class="author-info" style="text-align: center; margin-top: 3em !important;">
+          <span style="color: #ffffff; font-size: 1.2em; font-weight: 600;">Charles Crabtree</span><br>
+          <span style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; opacity: 0.8;">charles.crabtree@monash.edu • charlescrabtree.org</span>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      center: true,
+      progress: true,
+      slideNumber: 'c/t',
+      transition: 'fade',
+      controls: true,
+      margin: 0.1,
+      minScale: 0.2,
+      maxScale: 2.0
+    });
+  </script>
+</body>
+</html>
